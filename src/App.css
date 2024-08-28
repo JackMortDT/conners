@@ -1,0 +1,64 @@
+.app-container {
+  display: flex;
+}
+
+.results-panel {
+  width: 100%;
+  overflow-x: auto;
+  margin-right: 20px;
+}
+
+.results-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.results-table th {
+  background-color: #f4f4f4;
+}
+
+.field-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.active-field {
+  background-color: #fff;
+}
+
+.inactive-field {
+  background-color: #f0f0f0;
+}
+
+.results-column {
+  border-left: 2px solid #000;
+  padding: 10px;
+}
+
+.question-options {
+  display: flex;
+  justify-content: flex-start; /* Alinea los radio buttons horizontalmente */
+  align-items: center;
+}
+
+.question-options label {
+  margin-right: 10px;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.total-result {
+  font-weight: bold;
+  background-color: #f4f4f4;
+}
