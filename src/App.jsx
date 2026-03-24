@@ -6,6 +6,9 @@ import Header from './components/Header'
 import Board from './components/Board'
 import Total from './components/Total'
 import Pagination from './components/Pagination'
+import ModuleNav from './components/ModuleNav'
+import InconsistencyIndex from './components/InconsistencyIndex'
+import Charts from './components/Charts'
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -19,6 +22,8 @@ const App = () => {
     const stored = localStorage.getItem('currentPage');
     return stored ? parseInt(stored, 10) : 0;
   });
+
+  const [activeModule, setActiveModule] = useState('cuestionario');
 
   useEffect(() => {
     localStorage.setItem('answers', JSON.stringify(answers));
@@ -52,43 +57,48 @@ const App = () => {
     <div>
       <h1 className="app-title">La poderosisima Conners</h1>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        answeredInPage={answeredInPage}
-        totalInPage={pageQuestions.length}
-        onPageChange={goToPage}
-      />
+      <ModuleNav activeModule={activeModule} onModuleChange={setActiveModule} />
 
-      <div className="app-container">
-        <div className="results-panel">
-          <table className="results-table">
-            <Header fields={fields} />
-            <tbody>
-              <Board
-                questions={pageQuestions}
-                fields={fields}
-                answers={answers}
-                setAnswers={setAnswers}
-              />
-              <Total
-                fields={fields}
-                answers={answers}
-                questions={questions}
-                resetAnswers={resetAnswers}
-              />
-            </tbody>
-          </table>
-        </div>
-      </div>
+      {activeModule === 'cuestionario' && (
+        <>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            answeredInPage={answeredInPage}
+            totalInPage={pageQuestions.length}
+            onPageChange={goToPage}
+          />
+          <div className="app-container">
+            <div className="results-panel">
+              <table className="results-table">
+                <Header fields={fields} />
+                <tbody>
+                  <Board
+                    questions={pageQuestions}
+                    fields={fields}
+                    answers={answers}
+                    setAnswers={setAnswers}
+                  />
+                  <Total
+                    fields={fields}
+                    answers={answers}
+                    questions={questions}
+                    resetAnswers={resetAnswers}
+                  />
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
+      )}
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        answeredInPage={answeredInPage}
-        totalInPage={pageQuestions.length}
-        onPageChange={goToPage}
-      />
+      {activeModule === 'analisis' && (
+        <InconsistencyIndex answers={answers} questions={questions} />
+      )}
+
+      {activeModule === 'graficas' && (
+        <Charts fields={fields} answers={answers} questions={questions} />
+      )}
     </div>
   );
 };
