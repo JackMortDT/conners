@@ -5,6 +5,9 @@ import fields from './resources/fields'
 import Header from './components/Header'
 import Board from './components/Board'
 import Total from './components/Total'
+import Pagination from './components/Pagination'
+
+const QUESTIONS_PER_PAGE = 10;
 
 const App = () => {
   const [answers, setAnswers] = useState(() => {
@@ -12,18 +15,50 @@ const App = () => {
     return stored ? JSON.parse(stored) : {};
   });
 
+  const [currentPage, setCurrentPage] = useState(() => {
+    const stored = localStorage.getItem('currentPage');
+    return stored ? parseInt(stored, 10) : 0;
+  });
+
   useEffect(() => {
     localStorage.setItem('answers', JSON.stringify(answers));
   }, [answers]);
 
+  useEffect(() => {
+    localStorage.setItem('currentPage', String(currentPage));
+  }, [currentPage]);
+
+  const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE);
+  const pageQuestions = questions.slice(
+    currentPage * QUESTIONS_PER_PAGE,
+    (currentPage + 1) * QUESTIONS_PER_PAGE
+  );
+
+  const answeredInPage = pageQuestions.filter(q => answers[q.id] !== undefined).length;
+
   const resetAnswers = () => {
     localStorage.removeItem('answers');
+    localStorage.removeItem('currentPage');
     setAnswers({});
+    setCurrentPage(0);
+  };
+
+  const goToPage = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div>
       <h1 className="app-title">La poderosisima Conners</h1>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        answeredInPage={answeredInPage}
+        totalInPage={pageQuestions.length}
+        onPageChange={goToPage}
+      />
 
       <div className="app-container">
         <div className="results-panel">
@@ -31,7 +66,7 @@ const App = () => {
             <Header fields={fields} />
             <tbody>
               <Board
-                questions={questions}
+                questions={pageQuestions}
                 fields={fields}
                 answers={answers}
                 setAnswers={setAnswers}
@@ -46,6 +81,14 @@ const App = () => {
           </table>
         </div>
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        answeredInPage={answeredInPage}
+        totalInPage={pageQuestions.length}
+        onPageChange={goToPage}
+      />
     </div>
   );
 };
