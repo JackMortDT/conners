@@ -183,6 +183,325 @@
   background: #aaa;
 }
 
+/* ── Module Nav ─────────────────────────────────────────────── */
+.module-nav {
+  display: flex;
+  gap: 4px;
+  max-width: 900px;
+  margin: 0 auto 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.module-tab {
+  flex: 1;
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: transparent;
+  color: #555;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.module-tab:hover:not(.active) {
+  background: #f0f0f0;
+}
+
+.module-tab.active {
+  background: #007bff;
+  color: white;
+}
+
+/* ── Inconsistency Index ─────────────────────────────────────── */
+.inconsistency-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.inconsistency-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+.inconsistency-section {
+  margin-bottom: 28px;
+}
+
+.inconsistency-section h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.inconsistency-instructions {
+  font-size: 13px;
+  color: #777;
+  margin: 0 0 14px;
+}
+
+.inconsistency-pairs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.inconsistency-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 100px;
+}
+
+.pair-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.pair-label {
+  color: #888;
+}
+
+.pair-score {
+  font-weight: bold;
+  color: #333;
+}
+
+.pair-diff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 4px;
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.pair-diff-label {
+  color: #aaa;
+}
+
+.pair-diff-value {
+  font-weight: bold;
+  color: #333;
+}
+
+.diff-high {
+  color: #e07b00;
+}
+
+.inconsistency-totals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.inconsistency-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 18px;
+}
+
+.box-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.box-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.box-note {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.inconsistency-alert {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.alert-active {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+}
+
+.alert-inactive {
+  background: #d1e7dd;
+  border: 1px solid #a3cfbb;
+  color: #0f5132;
+}
+
+.pi-ni-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.pi-ni-table th,
+.pi-ni-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.pi-ni-table th {
+  background: #f4f4f4;
+  font-weight: 600;
+}
+
+.pi-ni-score {
+  text-align: center;
+  font-weight: bold;
+}
+
+.guideline-flagged td {
+  background: #fff3cd;
+}
+
+.pi-ni-note {
+  font-size: 12px;
+  color: #888;
+  margin: 8px 0 0;
+}
+
+/* ── Charts / Histogram ──────────────────────────────────────── */
+.charts-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.charts-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: #333;
+}
+
+.charts-subtitle {
+  font-size: 13px;
+  color: #888;
+  margin: 0 0 20px;
+}
+
+.histogram {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 220px;
+  padding: 0 4px;
+}
+
+.histogram-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.histogram-value {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  min-height: 16px;
+}
+
+.histogram-track {
+  flex: 1;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.histogram-fill {
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.histogram-scored {
+  width: 100%;
+  background: #007bff;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+  min-height: 2px;
+}
+
+.histogram-label {
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.charts-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-scored { background: #007bff; }
+.legend-max    { background: #e0e0e0; }
+
 /* ── Mobile layout ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .results-table {
@@ -300,5 +619,30 @@
 
   .reset-container {
     margin: 0;
+  }
+
+  /* Module nav stacks on mobile */
+  .module-nav {
+    flex-direction: column;
+  }
+
+  /* Inconsistency pairs full-width on mobile */
+  .inconsistency-pair {
+    min-width: calc(50% - 5px);
+  }
+
+  .inconsistency-container,
+  .charts-container {
+    padding: 14px 12px;
+  }
+
+  /* Histogram smaller on mobile */
+  .histogram {
+    height: 160px;
+    gap: 4px;
+  }
+
+  .histogram-label {
+    font-size: 9px;
   }
 }
