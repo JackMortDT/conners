@@ -1,23 +1,22 @@
-import React from "react";
-
-const Question = ({ questionId, answer, handleAnswerChange, options }) => {
+const Question = ({ questionId, answer, onAnswerChange, options }) => {
   return (
     <div className="question-options">
-      {options.map((option) => (
-        <div key={option} style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
-          <input
-            type="radio"
-            name={`question-${questionId}`}
-            value={option}
-            checked={answer === option}
-            onChange={() => handleAnswerChange(option)}
-            style={{ marginRight: '5px' }}
-          />
-          <label>
-            {option}
-          </label>
-        </div>
-      ))}
+      {options.map((option) => {
+        const inputId = `q${questionId}-opt${option}`;
+        return (
+          <div key={option} className="option-item">
+            <input
+              id={inputId}
+              type="radio"
+              name={`question-${questionId}`}
+              value={option}
+              checked={answer === option}
+              onChange={() => onAnswerChange(option)}
+            />
+            <label htmlFor={inputId}>{option}</label>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -1,50 +1,32 @@
-import React from "react";
+import { useMemo } from "react";
 
 const Total = ({ fields, answers, questions, resetAnswers }) => {
-  const calculateResults = () => {
-    const results = fields.reduce((acc, field) => {
-      acc[field] = 0;
-      return acc;
-    }, {});
+  const results = useMemo(() => {
+    const totals = fields.reduce((acc, field) => ({ ...acc, [field]: 0 }), {});
 
-    for (const questionId in answers) {
-      const selectedAnswer = answers[questionId];
-      const question = questions.find(q => q.id == questionId);
-
+    for (const [questionId, selectedAnswer] of Object.entries(answers)) {
+      const question = questions.find(q => q.id === Number(questionId));
       if (question) {
         question.fields.forEach(fieldKey => {
-          results[fieldKey] += parseInt(selectedAnswer, 10) || 0;
+          totals[fieldKey] += parseInt(selectedAnswer, 10) || 0;
         });
       }
     }
 
-    return results;
-  };
-
-  const results = calculateResults();
+    return totals;
+  }, [fields, answers, questions]);
 
   return (
     <tr>
       <td>Total:</td>
       {fields.map((field) => (
         <td key={field} className="total-result">
-          {results[field] || 0}
+          {results[field] ?? 0}
         </td>
       ))}
       <td>
-        <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-          <button
-            onClick={resetAnswers}
-            style={{
-              padding: '5px 10px',
-              fontSize: '12px',
-              backgroundColor: '#f44336',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
-          >
+        <div className="reset-container">
+          <button className="reset-button" onClick={resetAnswers}>
             Reiniciar
           </button>
         </div>
