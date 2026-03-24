@@ -88,3 +88,123 @@
   font-weight: bold;
   background-color: #f4f4f4;
 }
+
+/* ── Mobile layout ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .results-table {
+    display: block;
+  }
+
+  .results-table thead {
+    display: none;
+  }
+
+  .results-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Cada pregunta como tarjeta */
+  .results-table tbody tr:not(.total-row) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: white;
+  }
+
+  /* Ocultar columnas de campos en filas de preguntas */
+  .results-table tbody tr:not(.total-row) td.field-cell {
+    display: none;
+  }
+
+  /* Número de pregunta */
+  .results-table tbody tr:not(.total-row) td:first-child {
+    min-width: 26px;
+    font-weight: bold;
+    color: #666;
+    font-size: 14px;
+  }
+
+  /* Columna de respuestas */
+  .results-table td.results-column {
+    border-left: none;
+    flex: 1;
+    padding: 0;
+  }
+
+  /* Opciones más grandes para toque */
+  .question-options {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .option-item {
+    margin-right: 0;
+  }
+
+  .option-item input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .option-item label {
+    font-size: 17px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+
+  /* Fila de totales */
+  .total-row {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 6px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 12px;
+    background: white;
+    margin-top: 4px;
+  }
+
+  .total-row td:first-child {
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 0 4px;
+  }
+
+  .total-row td.total-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 4px 6px;
+    background: #f9f9f9;
+    font-size: 15px;
+  }
+
+  /* Etiqueta del campo sobre el valor */
+  .total-row td.total-result::before {
+    content: attr(data-field);
+    font-size: 10px;
+    font-weight: normal;
+    color: #888;
+  }
+
+  /* Botón Reiniciar */
+  .total-row td:last-child {
+    width: 100%;
+    padding: 4px 0 0;
+  }
+
+  .reset-container {
+    margin: 0;
+  }
+}
