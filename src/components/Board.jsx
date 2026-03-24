@@ -1,13 +1,13 @@
-import React from "react";
+import { useCallback } from "react";
 import Question from "./Question";
 
 const Board = ({ questions, fields, answers, setAnswers }) => {
-  const handleAnswerChange = (questionId, value) => {
+  const handleAnswerChange = useCallback((questionId, value) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: value,
     }));
-  };
+  }, [setAnswers]);
 
   return (
     <>
@@ -19,25 +19,25 @@ const Board = ({ questions, fields, answers, setAnswers }) => {
               key={field}
               className={`field-cell ${question.fields.includes(field) ? 'active-field' : 'inactive-field'}`}
             >
-              {question.fields.includes(field) ? (
+              {question.fields.includes(field) && (
                 <div className="result">
-                  {answers[question.id] && parseInt(answers[question.id], 10) || 0}
+                  {answers[question.id] ?? 0}
                 </div>
-              ) : null}
+              )}
             </td>
           ))}
           <td className="results-column">
             <Question
               questionId={question.id}
               answer={answers[question.id]}
-              handleAnswerChange={(value) => handleAnswerChange(question.id, value)}
-              options={questions.find(q => q.id === question.id)?.options || []}
+              onAnswerChange={(value) => handleAnswerChange(question.id, value)}
+              options={question.options}
             />
           </td>
         </tr>
       ))}
     </>
-  )
+  );
 };
 
 export default Board;

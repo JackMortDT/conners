@@ -7,14 +7,10 @@ import Board from './components/Board'
 import Total from './components/Total'
 
 const App = () => {
-  const [answers, setAnswers] = useState({});
-
-  useEffect(() => {
-    const storedAnswers = localStorage.getItem('answers');
-    if (storedAnswers) {
-      setAnswers(JSON.parse(storedAnswers));
-    }
-  }, []);
+  const [answers, setAnswers] = useState(() => {
+    const stored = localStorage.getItem('answers');
+    return stored ? JSON.parse(stored) : {};
+  });
 
   useEffect(() => {
     localStorage.setItem('answers', JSON.stringify(answers));
@@ -27,7 +23,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>La poderosisima Conners</h1>
+      <h1 className="app-title">La poderosisima Conners</h1>
 
       <div className="app-container">
         <div className="results-panel">
@@ -38,12 +34,14 @@ const App = () => {
                 questions={questions}
                 fields={fields}
                 answers={answers}
-                setAnswers={setAnswers} />
+                setAnswers={setAnswers}
+              />
               <Total
                 fields={fields}
                 answers={answers}
                 questions={questions}
-                resetAnswers={resetAnswers} />
+                resetAnswers={resetAnswers}
+              />
             </tbody>
           </table>
         </div>
