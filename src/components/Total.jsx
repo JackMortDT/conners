@@ -17,10 +17,10 @@ const Total = ({ fields, answers, questions, resetAnswers }) => {
   }, [fields, answers, questions]);
 
   return (
-    <tr>
+    <tr className="total-row">
       <td>Total:</td>
       {fields.map((field) => (
-        <td key={field} className="total-result">
+        <td key={field} className="total-result" data-field={field}>
           {results[field] ?? 0}
         </td>
       ))}
