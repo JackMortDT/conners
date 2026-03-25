@@ -9,6 +9,7 @@ import Pagination from './components/Pagination'
 import ModuleNav from './components/ModuleNav'
 import InconsistencyIndex from './components/InconsistencyIndex'
 import Charts from './components/Charts'
+import About from './components/About'
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -55,7 +56,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="app-title">La poderosisima Conners</h1>
+      <h1 className="app-title">Sistema de Evaluación Neuropsicológica</h1>
 
       <ModuleNav activeModule={activeModule} onModuleChange={setActiveModule} />
 
@@ -99,6 +100,8 @@ const App = () => {
       {activeModule === 'graficas' && (
         <Charts fields={fields} answers={answers} questions={questions} />
       )}
+
+      {activeModule === 'acerca' && <About />}
     </div>
   );
 };
