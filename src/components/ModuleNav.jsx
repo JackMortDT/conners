@@ -2,6 +2,7 @@ const MODULES = [
   { id: 'cuestionario', label: 'Cuestionario' },
   { id: 'analisis',     label: 'Análisis de estilo' },
   { id: 'graficas',     label: 'Gráficas' },
+  { id: 'acerca',       label: 'Acerca de' },
 ];
 
 const ModuleNav = ({ activeModule, onModuleChange }) => (

@@ -474,6 +474,104 @@
 .legend-scored { background: #007bff; }
 .legend-max    { background: #e0e0e0; }
 
+/* ── About page ─────────────────────────────────────────────── */
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 24px 28px;
+}
+
+.about-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #333;
+}
+
+.about-intro {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.about-section {
+  margin-bottom: 28px;
+}
+
+.about-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-section li {
+  margin-bottom: 4px;
+}
+
+.about-module {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.about-module-name {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #007bff;
+  background: #e8f0fe;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+}
+
+.about-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.about-field-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.about-field-key {
+  font-weight: bold;
+  color: #007bff;
+  font-family: monospace;
+}
+
+.about-field-label {
+  color: #555;
+}
+
 /* ── Mobile layout ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .results-table {
