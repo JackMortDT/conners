@@ -5,7 +5,7 @@ const fields = [
   'EF',
   'AG',
   'PR',
-  'GLI',
+  'GI',
   'AN',
   'AH',
   'CD',
