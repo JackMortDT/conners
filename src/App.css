@@ -648,13 +648,20 @@
   margin: 0;
 }
 
-.test-card-action {
+.test-card-actions {
+  display: flex;
+  gap: 8px;
   margin-top: 8px;
+  width: 100%;
+}
+
+.test-card-action {
   padding: 6px 14px;
   font-size: 13px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  flex: 1;
 }
 
 .test-card.available .test-card-action {
