@@ -1,18 +1,17 @@
 const fields = [
-  'IN1',
-  'HY1',
-  'LE1',
-  'LP1',
-  'EF1',
-  'AG1',
-  'PR1',
-  'GL1',
-  'AN1',
-  'AH1',
-  'CD1',
-  'OD1',
-  'PI1',
-  'NI1'
+  'IN',
+  'HY',
+  'LP',
+  'EF',
+  'AG',
+  'PR',
+  'GLI',
+  'AN',
+  'AH',
+  'CD',
+  'OD',
+  'PI',
+  'NI'
 ];
 
 export default fields;
