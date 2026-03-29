@@ -1,8 +1,15 @@
 const TESTS = [
   {
-    id: 'conners',
+    id: 'conners-parents',
     icon: '🧠',
-    label: 'Conners 3',
+    label: 'Conners 3 — Padres',
+    description: 'Evaluación de TDAH',
+    available: true,
+  },
+  {
+    id: 'conners-teachers',
+    icon: '🧠',
+    label: 'Conners 3 — Maestros',
     description: 'Evaluación de TDAH',
     available: true,
   },
