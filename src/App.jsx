@@ -10,10 +10,13 @@ import ModuleNav from './components/ModuleNav'
 import InconsistencyIndex from './components/InconsistencyIndex'
 import Charts from './components/Charts'
 import About from './components/About'
+import TestSelector from './components/TestSelector'
 
 const QUESTIONS_PER_PAGE = 10;
 
 const App = () => {
+  const [activeTest, setActiveTest] = useState(null);
+
   const [answers, setAnswers] = useState(() => {
     const stored = localStorage.getItem('answers');
     return stored ? JSON.parse(stored) : {};
@@ -54,11 +57,24 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (activeTest === null) {
+    return (
+      <div>
+        <h1 className="app-title">Sistema de Evaluación Neuropsicológica</h1>
+        <TestSelector onSelect={setActiveTest} />
+      </div>
+    );
+  }
+
   return (
     <div>
       <h1 className="app-title">Sistema de Evaluación Neuropsicológica</h1>
 
-      <ModuleNav activeModule={activeModule} onModuleChange={setActiveModule} />
+      <ModuleNav
+        activeModule={activeModule}
+        onModuleChange={setActiveModule}
+        onBack={() => setActiveTest(null)}
+      />
 
       {activeModule === 'cuestionario' && (
         <>
