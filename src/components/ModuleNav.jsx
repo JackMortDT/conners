@@ -5,8 +5,13 @@ const MODULES = [
   { id: 'acerca',       label: 'Acerca de' },
 ];
 
-const ModuleNav = ({ activeModule, onModuleChange }) => (
+const ModuleNav = ({ activeModule, onModuleChange, onBack }) => (
   <nav className="module-nav">
+    {onBack && (
+      <button className="module-nav-back" onClick={onBack}>
+        ← Pruebas
+      </button>
+    )}
     {MODULES.map(({ id, label }) => (
       <button
         key={id}
