@@ -572,6 +572,123 @@
   color: #555;
 }
 
+/* ── Test Selector ──────────────────────────────────────────── */
+.test-selector {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.test-selector-title {
+  font-size: 22px;
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.test-selector-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 32px;
+}
+
+.test-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.test-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.test-card.available {
+  border: 2px solid #007bff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.12);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.test-card.available:hover {
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.test-card.unavailable {
+  border: 2px dashed #ccc;
+  opacity: 0.6;
+  cursor: default;
+}
+
+.test-card-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.test-card-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #333;
+}
+
+.test-card.available .test-card-label {
+  color: #007bff;
+}
+
+.test-card-description {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.test-card-action {
+  margin-top: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.test-card.available .test-card-action {
+  background: #007bff;
+  color: white;
+}
+
+.test-card.available .test-card-action:hover {
+  background: #0056b3;
+}
+
+.test-card.unavailable .test-card-action {
+  background: #e0e0e0;
+  color: #aaa;
+  cursor: default;
+}
+
+.module-nav-back {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  background: transparent;
+  color: #888;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.module-nav-back:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
 /* ── Mobile layout ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .results-table {
