@@ -694,6 +694,31 @@
   color: #333;
 }
 
+/* ── Age input (inline in module nav) ──────────────────────── */
+.module-nav-age {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+  flex-shrink: 0;
+  padding: 4px 8px;
+}
+
+.module-nav-age-input {
+  width: 48px;
+  padding: 4px 6px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.module-nav-age-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
 /* ── Mobile layout ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .results-table {
@@ -816,6 +841,10 @@
   /* Module nav stacks on mobile */
   .module-nav {
     flex-direction: column;
+  }
+
+  .module-nav-age {
+    justify-content: center;
   }
 
   /* Inconsistency pairs full-width on mobile */

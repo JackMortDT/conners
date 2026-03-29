@@ -25,6 +25,7 @@ const App = () => {
   const [answers, setAnswers] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
   const [activeModule, setActiveModule] = useState('cuestionario');
+  const [age, setAge] = useState(null);
 
   // Load version-specific answers and page from localStorage when version changes
   useEffect(() => {
@@ -49,6 +50,25 @@ const App = () => {
       localStorage.setItem(`currentPage-${activeTest}`, String(currentPage));
     }
   }, [currentPage, activeTest]);
+
+  // Load age from localStorage when version changes
+  useEffect(() => {
+    if (activeTest !== null) {
+      const stored = localStorage.getItem(`age-${activeTest}`);
+      setAge(stored ? parseInt(stored, 10) : null);
+    }
+  }, [activeTest]);
+
+  // Persist age for the active version
+  useEffect(() => {
+    if (activeTest !== null) {
+      if (age !== null) {
+        localStorage.setItem(`age-${activeTest}`, String(age));
+      } else {
+        localStorage.removeItem(`age-${activeTest}`);
+      }
+    }
+  }, [age, activeTest]);
 
   const questions = QUESTIONS_BY_VERSION[activeTest] ?? [];
 
@@ -88,7 +108,9 @@ const App = () => {
       <ModuleNav
         activeModule={activeModule}
         onModuleChange={setActiveModule}
-        onBack={() => setActiveTest(null)}
+        onBack={() => { setActiveTest(null); setAge(null); }}
+        age={age}
+        onAgeChange={setAge}
       />
 
       {activeModule === 'cuestionario' && (
