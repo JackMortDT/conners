@@ -33,7 +33,6 @@ const TestSelector = ({ onSelect }) => (
         <div
           key={id}
           className={`test-card ${available ? 'available' : 'unavailable'}`}
-          onClick={available ? () => onSelect(id) : undefined}
         >
           <div className="test-card-icon">{icon}</div>
           <div className="test-card-label">{label}</div>
