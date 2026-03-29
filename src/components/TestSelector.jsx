@@ -5,6 +5,10 @@ const TESTS = [
     label: 'Conners 3',
     description: 'Evaluación de TDAH',
     available: true,
+    versions: [
+      { id: 'conners-parents',  label: 'Padres' },
+      { id: 'conners-teachers', label: 'Maestros' },
+    ],
   },
   {
     id: 'test2',
@@ -29,7 +33,7 @@ const TestSelector = ({ onSelect }) => (
       Elige el instrumento que deseas aplicar
     </p>
     <div className="test-selector-grid">
-      {TESTS.map(({ id, icon, label, description, available }) => (
+      {TESTS.map(({ id, icon, label, description, available, versions }) => (
         <div
           key={id}
           className={`test-card ${available ? 'available' : 'unavailable'}`}
@@ -37,13 +41,23 @@ const TestSelector = ({ onSelect }) => (
           <div className="test-card-icon">{icon}</div>
           <div className="test-card-label">{label}</div>
           <p className="test-card-description">{description}</p>
-          <button
-            className="test-card-action"
-            disabled={!available}
-            onClick={available ? () => onSelect(id) : undefined}
-          >
-            {available ? 'Iniciar →' : 'Próximamente'}
-          </button>
+          {available && versions ? (
+            <div className="test-card-actions">
+              {versions.map((v) => (
+                <button
+                  key={v.id}
+                  className="test-card-action"
+                  onClick={() => onSelect(v.id)}
+                >
+                  {v.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <button className="test-card-action" disabled>
+              Próximamente
+            </button>
+          )}
         </div>
       ))}
     </div>

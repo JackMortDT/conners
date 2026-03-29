@@ -1,6 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import questions from './resources/questions'
+import questionsParents  from './resources/questions-parents'
+import questionsTeachers from './resources/questions-teachers'
 import fields from './resources/fields'
 import Header from './components/Header'
 import Board from './components/Board'
@@ -14,28 +15,42 @@ import TestSelector from './components/TestSelector'
 
 const QUESTIONS_PER_PAGE = 10;
 
+const QUESTIONS_BY_VERSION = {
+  'conners-parents':  questionsParents,
+  'conners-teachers': questionsTeachers,
+};
+
 const App = () => {
   const [activeTest, setActiveTest] = useState(null);
-
-  const [answers, setAnswers] = useState(() => {
-    const stored = localStorage.getItem('answers');
-    return stored ? JSON.parse(stored) : {};
-  });
-
-  const [currentPage, setCurrentPage] = useState(() => {
-    const stored = localStorage.getItem('currentPage');
-    return stored ? parseInt(stored, 10) : 0;
-  });
-
+  const [answers, setAnswers] = useState({});
+  const [currentPage, setCurrentPage] = useState(0);
   const [activeModule, setActiveModule] = useState('cuestionario');
 
+  // Load version-specific answers and page from localStorage when version changes
   useEffect(() => {
-    localStorage.setItem('answers', JSON.stringify(answers));
-  }, [answers]);
+    if (activeTest !== null) {
+      const stored = localStorage.getItem(`answers-${activeTest}`);
+      setAnswers(stored ? JSON.parse(stored) : {});
+      const page = localStorage.getItem(`currentPage-${activeTest}`);
+      setCurrentPage(page ? parseInt(page, 10) : 0);
+    }
+  }, [activeTest]);
 
+  // Persist answers for the active version
   useEffect(() => {
-    localStorage.setItem('currentPage', String(currentPage));
-  }, [currentPage]);
+    if (activeTest !== null) {
+      localStorage.setItem(`answers-${activeTest}`, JSON.stringify(answers));
+    }
+  }, [answers, activeTest]);
+
+  // Persist current page for the active version
+  useEffect(() => {
+    if (activeTest !== null) {
+      localStorage.setItem(`currentPage-${activeTest}`, String(currentPage));
+    }
+  }, [currentPage, activeTest]);
+
+  const questions = QUESTIONS_BY_VERSION[activeTest] ?? [];
 
   const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE);
   const pageQuestions = questions.slice(
@@ -46,8 +61,8 @@ const App = () => {
   const answeredInPage = pageQuestions.filter(q => answers[q.id] !== undefined).length;
 
   const resetAnswers = () => {
-    localStorage.removeItem('answers');
-    localStorage.removeItem('currentPage');
+    localStorage.removeItem(`answers-${activeTest}`);
+    localStorage.removeItem(`currentPage-${activeTest}`);
     setAnswers({});
     setCurrentPage(0);
   };
