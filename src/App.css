@@ -719,6 +719,107 @@
   border-color: #007bff;
 }
 
+/* ── Clinical Analysis ──────────────────────────────────────── */
+.clinical-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.clinical-placeholder {
+  color: #888;
+  font-size: 14px;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.clinical-title {
+  margin: 0 0 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.clinical-section {
+  margin-bottom: 32px;
+}
+
+.clinical-section h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.clinical-tables-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.clinical-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.clinical-table th,
+.clinical-table td {
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.clinical-table th {
+  background: #f4f4f4;
+  font-weight: 600;
+}
+
+.clinical-table td:first-child {
+  text-align: left;
+}
+
+.clinical-row-flagged td {
+  background: #fff3cd;
+}
+
+.clinical-row-attention td {
+  background: #f8d7da;
+}
+
+.clinical-flag-cell {
+  font-weight: bold;
+  color: #856404;
+}
+
+.clinical-attention-cell {
+  font-weight: bold;
+  color: #721c24;
+}
+
+.clinical-total-row td {
+  font-weight: bold;
+  background: #f4f4f4;
+}
+
+.clinical-threshold {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.clinical-threshold.met {
+  color: #856404;
+  font-weight: 600;
+}
+
+.clinical-score-cell {
+  font-weight: bold;
+}
+
 /* ── Mobile layout ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .results-table {
@@ -859,5 +960,13 @@
 
   .charts-header {
     flex-direction: column;
+  }
+
+  .clinical-tables-row {
+    flex-direction: column;
+  }
+
+  .clinical-container {
+    padding: 14px 12px;
   }
 }

@@ -12,6 +12,8 @@ import InconsistencyIndex from './components/InconsistencyIndex'
 import Charts from './components/Charts'
 import About from './components/About'
 import TestSelector from './components/TestSelector'
+import ClinicalAnalysisParents from './components/ClinicalAnalysisParents'
+import ClinicalAnalysisPlaceholder from './components/ClinicalAnalysisPlaceholder'
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -155,6 +157,12 @@ const App = () => {
       )}
 
       {activeModule === 'acerca' && <About />}
+
+      {activeModule === 'clinico' && (
+        activeTest === 'conners-parents'
+          ? <ClinicalAnalysisParents answers={answers} questions={questions} age={age} />
+          : <ClinicalAnalysisPlaceholder />
+      )}
     </div>
   );
 };
