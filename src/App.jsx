@@ -26,6 +26,8 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [activeModule, setActiveModule] = useState('cuestionario');
   const [age, setAge] = useState(null);
+  const [patientName, setPatientName] = useState('');
+  const [testDate, setTestDate] = useState(() => new Date().toISOString().slice(0, 10));
 
   // Load version-specific answers and page from localStorage when version changes
   useEffect(() => {
@@ -70,6 +72,40 @@ const App = () => {
     }
   }, [age, activeTest]);
 
+  // Load patientName from localStorage when version changes
+  useEffect(() => {
+    if (activeTest !== null) {
+      const stored = localStorage.getItem(`patientName-${activeTest}`);
+      setPatientName(stored ?? '');
+    }
+  }, [activeTest]);
+
+  // Load testDate from localStorage when version changes
+  useEffect(() => {
+    if (activeTest !== null) {
+      const stored = localStorage.getItem(`testDate-${activeTest}`);
+      setTestDate(stored ?? new Date().toISOString().slice(0, 10));
+    }
+  }, [activeTest]);
+
+  // Persist patientName for the active version
+  useEffect(() => {
+    if (activeTest !== null) {
+      if (patientName) {
+        localStorage.setItem(`patientName-${activeTest}`, patientName);
+      } else {
+        localStorage.removeItem(`patientName-${activeTest}`);
+      }
+    }
+  }, [patientName, activeTest]);
+
+  // Persist testDate for the active version
+  useEffect(() => {
+    if (activeTest !== null) {
+      localStorage.setItem(`testDate-${activeTest}`, testDate);
+    }
+  }, [testDate, activeTest]);
+
   const questions = QUESTIONS_BY_VERSION[activeTest] ?? [];
 
   const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE);
@@ -111,6 +147,10 @@ const App = () => {
         onBack={() => { setActiveTest(null); setAge(null); }}
         age={age}
         onAgeChange={setAge}
+        patientName={patientName}
+        onPatientNameChange={setPatientName}
+        testDate={testDate}
+        onTestDateChange={setTestDate}
       />
 
       {activeModule === 'cuestionario' && (
@@ -152,6 +192,8 @@ const App = () => {
           questions={questions}
           age={age}
           activeTest={activeTest}
+          patientName={patientName}
+          testDate={testDate}
         />
       )}
 
