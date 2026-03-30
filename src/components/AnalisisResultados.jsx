@@ -5,6 +5,7 @@ import ConductDisorder from './ConductDisorder';
 import ImpairmentItems from './ImpairmentItems';
 import ADHDIndex from './ADHDIndex';
 import ScreenerItems from './ScreenerItems';
+import { generateResultadosPDF } from '../utils/generateResultadosPDF';
 
 const CollapsibleSection = ({ title, children }) => {
   const [open, setOpen] = useState(false);
@@ -19,9 +20,19 @@ const CollapsibleSection = ({ title, children }) => {
   );
 };
 
-const AnalisisResultados = ({ answers, questions, age, activeTest }) => (
+const AnalisisResultados = ({ answers, questions, age, activeTest, patientName, testDate }) => (
   <div className="analisis-resultados-container">
-    <h2 className="analisis-resultados-title">Análisis de Resultados</h2>
+    <div className="analisis-resultados-header">
+      <h2 className="analisis-resultados-title">Análisis de Resultados</h2>
+      {activeTest === 'conners-parents' && (
+        <button
+          className="pdf-download-btn"
+          onClick={() => generateResultadosPDF({ answers, questions, age, patientName, testDate })}
+        >
+          Descargar PDF
+        </button>
+      )}
+    </div>
 
     <CollapsibleSection title="Análisis de Estilo de Respuesta">
       <InconsistencyIndex answers={answers} questions={questions} />

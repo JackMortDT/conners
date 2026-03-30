@@ -984,6 +984,32 @@
   color: #333;
 }
 
+.analisis-resultados-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.analisis-resultados-header .analisis-resultados-title {
+  margin: 0;
+}
+
+.pdf-download-btn {
+  padding: 8px 18px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.pdf-download-btn:hover {
+  background: #f0f0f0;
+}
+
 .collapsible {
   border: 1px solid #ddd;
   border-radius: 8px;
