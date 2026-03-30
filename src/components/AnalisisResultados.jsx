@@ -10,7 +10,7 @@ const CollapsibleSection = ({ title, children }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="collapsible">
-      <button className="collapsible-header" onClick={() => setOpen(o => !o)}>
+      <button className="collapsible-header" aria-expanded={open} onClick={() => setOpen(o => !o)}>
         <span>{title}</span>
         <span className="collapsible-chevron">{open ? '▼' : '▶'}</span>
       </button>
@@ -33,16 +33,16 @@ const AnalisisResultados = ({ answers, questions, age, activeTest }) => (
           <DSM5Counts answers={answers} questions={questions} age={age} />
         </CollapsibleSection>
         <CollapsibleSection title="Trastorno de Conducta / TOD">
-          <ConductDisorder answers={answers} questions={questions} />
+          <ConductDisorder answers={answers} />
         </CollapsibleSection>
         <CollapsibleSection title="Ítems de Deterioro">
-          <ImpairmentItems answers={answers} questions={questions} />
+          <ImpairmentItems answers={answers} />
         </CollapsibleSection>
         <CollapsibleSection title="Índice ADHD">
-          <ADHDIndex answers={answers} questions={questions} />
+          <ADHDIndex answers={answers} />
         </CollapsibleSection>
         <CollapsibleSection title="Ítems Screener">
-          <ScreenerItems answers={answers} questions={questions} />
+          <ScreenerItems answers={answers} />
         </CollapsibleSection>
       </>
     ) : (

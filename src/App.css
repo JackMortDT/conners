@@ -1041,3 +1041,7 @@
   padding: 0;
   background: transparent;
 }
+
+.collapsible-body .inconsistency-title {
+  display: none;
+}
