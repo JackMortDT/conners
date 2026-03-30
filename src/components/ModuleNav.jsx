@@ -1,8 +1,7 @@
 const MODULES = [
   { id: 'cuestionario', label: 'Cuestionario' },
-  { id: 'analisis',     label: 'Análisis de estilo' },
+  { id: 'resultados',   label: 'Análisis de Resultados' },
   { id: 'graficas',     label: 'Gráficas' },
-  { id: 'clinico',      label: 'Análisis clínico' },
   { id: 'acerca',       label: 'Acerca de' },
 ];
 
@@ -25,9 +24,9 @@ const ModuleNav = ({ activeModule, onModuleChange, onBack, age, onAgeChange }) =
     <label className="module-nav-age">
       Edad:
       <input
-        type="number"
-        min="6"
-        max="17"
+        type="text"
+        inputMode="numeric"
+        pattern="[0-9]*"
         value={age ?? ''}
         onChange={e => {
           const v = parseInt(e.target.value, 10);
