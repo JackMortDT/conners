@@ -5,7 +5,12 @@ const MODULES = [
   { id: 'acerca',       label: 'Acerca de' },
 ];
 
-const ModuleNav = ({ activeModule, onModuleChange, onBack, age, onAgeChange }) => (
+const ModuleNav = ({
+  activeModule, onModuleChange, onBack,
+  age, onAgeChange,
+  patientName, onPatientNameChange,
+  testDate, onTestDateChange,
+}) => (
   <nav className="module-nav">
     {onBack && (
       <button className="module-nav-back" onClick={onBack}>
@@ -34,6 +39,25 @@ const ModuleNav = ({ activeModule, onModuleChange, onBack, age, onAgeChange }) =
         }}
         className="module-nav-age-input"
         placeholder="—"
+      />
+    </label>
+    <label className="module-nav-age">
+      Nombre:
+      <input
+        type="text"
+        value={patientName}
+        onChange={e => onPatientNameChange(e.target.value)}
+        className="module-nav-name-input"
+        placeholder="Paciente"
+      />
+    </label>
+    <label className="module-nav-age">
+      Fecha:
+      <input
+        type="date"
+        value={testDate}
+        onChange={e => onTestDateChange(e.target.value)}
+        className="module-nav-age-input"
       />
     </label>
   </nav>
