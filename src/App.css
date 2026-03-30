@@ -954,7 +954,8 @@
   }
 
   .inconsistency-container,
-  .charts-container {
+  .charts-container,
+  .analisis-resultados-container {
     padding: 14px 12px;
   }
 
@@ -1014,6 +1015,11 @@
   background: #f0f0f0;
 }
 
+.collapsible-header:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
+}
+
 .collapsible-chevron {
   font-size: 11px;
   color: #aaa;
@@ -1034,10 +1040,4 @@
   border-radius: 0;
   padding: 0;
   background: transparent;
-}
-
-@media (max-width: 640px) {
-  .analisis-resultados-container {
-    padding: 14px 12px;
-  }
 }
