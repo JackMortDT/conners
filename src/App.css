@@ -970,3 +970,74 @@
     padding: 14px 12px;
   }
 }
+
+/* ── Análisis de Resultados ─────────────────────────────────── */
+.analisis-resultados-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.analisis-resultados-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+.collapsible {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.collapsible-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f9f9f9;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  text-align: left;
+  margin-top: 0;
+}
+
+.collapsible-header:hover {
+  background: #f0f0f0;
+}
+
+.collapsible-chevron {
+  font-size: 11px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.collapsible-body {
+  border-top: 1px solid #eee;
+  padding: 16px;
+}
+
+/* Strip the standalone container border from InconsistencyIndex
+   when it is rendered inside a collapsible body — avoids double border. */
+.collapsible-body .inconsistency-container {
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .analisis-resultados-container {
+    padding: 14px 12px;
+  }
+}
