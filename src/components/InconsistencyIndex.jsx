@@ -1,17 +1,17 @@
 import { useMemo } from 'react';
 
-// Pairs as defined in the instrument's Response Style Analysis sheet
+// Pairs from the Conners 3–Parent Response Style Analysis sheet
 const PAIRS = [
-  [97, 100],
-  [42, 63],
-  [4,  77],
-  [7,  13],
-  [26, 29],
-  [35, 105],
-  [25, 57],
-  [23, 44],
-  [34, 89],
-  [47, 71],
+  [44, 67],
+  [12, 23],
+  [36, 60],
+  [14, 81],
+  [19, 98],
+  [45, 99],
+  [94, 102],
+  [75, 79],
+  [13, 92],
+  [39, 83],
 ];
 
 const getScore = (answers, id) => {
@@ -32,21 +32,20 @@ const InconsistencyIndex = ({ answers, questions }) => {
     const boxA = answered.reduce((sum, p) => sum + p.diff, 0);
     const boxB = answered.filter(p => p.diff === 2 || p.diff === 3).length;
 
-    // PI1 and NI1 totals from all answers
     let piTotal = 0;
     let niTotal = 0;
     for (const [qId, val] of Object.entries(answers)) {
       const q = questions.find(q => q.id === Number(qId));
       if (!q) continue;
       const score = parseInt(val, 10) || 0;
-      if (q.fields.includes('PI1')) piTotal += score;
-      if (q.fields.includes('NI1')) niTotal += score;
+      if (q.fields.includes('PI')) piTotal += score;
+      if (q.fields.includes('NI')) niTotal += score;
     }
 
     return { pairs, boxA, boxB, piTotal, niTotal };
   }, [answers, questions]);
 
-  const inconsistent = boxA >= 6 && boxB >= 2;
+  const inconsistent = boxA >= 7 && boxB >= 2;
 
   return (
     <div className="inconsistency-container">
@@ -92,7 +91,7 @@ const InconsistencyIndex = ({ answers, questions }) => {
           </div>
           <div className={`inconsistency-alert ${inconsistent ? 'alert-active' : 'alert-inactive'}`}>
             {inconsistent
-              ? '⚠ Posible estilo de respuesta inconsistente indicado (A ≥ 6 y B ≥ 2)'
+              ? '⚠ Posible estilo de respuesta inconsistente indicado (A ≥ 7 y B ≥ 2)'
               : '✓ Sin indicación de estilo de respuesta inconsistente'}
           </div>
         </div>

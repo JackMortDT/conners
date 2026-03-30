@@ -12,6 +12,8 @@ import InconsistencyIndex from './components/InconsistencyIndex'
 import Charts from './components/Charts'
 import About from './components/About'
 import TestSelector from './components/TestSelector'
+import ClinicalAnalysisParents from './components/ClinicalAnalysisParents'
+import ClinicalAnalysisPlaceholder from './components/ClinicalAnalysisPlaceholder'
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -25,6 +27,7 @@ const App = () => {
   const [answers, setAnswers] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
   const [activeModule, setActiveModule] = useState('cuestionario');
+  const [age, setAge] = useState(null);
 
   // Load version-specific answers and page from localStorage when version changes
   useEffect(() => {
@@ -49,6 +52,25 @@ const App = () => {
       localStorage.setItem(`currentPage-${activeTest}`, String(currentPage));
     }
   }, [currentPage, activeTest]);
+
+  // Load age from localStorage when version changes
+  useEffect(() => {
+    if (activeTest !== null) {
+      const stored = localStorage.getItem(`age-${activeTest}`);
+      setAge(stored ? parseInt(stored, 10) : null);
+    }
+  }, [activeTest]);
+
+  // Persist age for the active version
+  useEffect(() => {
+    if (activeTest !== null) {
+      if (age !== null) {
+        localStorage.setItem(`age-${activeTest}`, String(age));
+      } else {
+        localStorage.removeItem(`age-${activeTest}`);
+      }
+    }
+  }, [age, activeTest]);
 
   const questions = QUESTIONS_BY_VERSION[activeTest] ?? [];
 
@@ -88,7 +110,9 @@ const App = () => {
       <ModuleNav
         activeModule={activeModule}
         onModuleChange={setActiveModule}
-        onBack={() => setActiveTest(null)}
+        onBack={() => { setActiveTest(null); setAge(null); }}
+        age={age}
+        onAgeChange={setAge}
       />
 
       {activeModule === 'cuestionario' && (
@@ -133,6 +157,12 @@ const App = () => {
       )}
 
       {activeModule === 'acerca' && <About />}
+
+      {activeModule === 'clinico' && (
+        activeTest === 'conners-parents'
+          ? <ClinicalAnalysisParents answers={answers} questions={questions} age={age} />
+          : <ClinicalAnalysisPlaceholder />
+      )}
     </div>
   );
 };
