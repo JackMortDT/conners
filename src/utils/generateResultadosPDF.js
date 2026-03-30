@@ -108,9 +108,9 @@ const ANXIETY_ITEMS = [
 
 const DEPRESSION_ITEMS = [
   { id: 17,  label: 'Sentimientos de inutilidad' },
-  { id: 66,  label: 'Cansado; poca energia' },
-  { id: 82,  label: 'Perdida de interes o placer' },
-  { id: 103, label: 'Triste, sombrio o irritable' },
+  { id: 66,  label: 'Cansado; poca energía' },
+  { id: 82,  label: 'Pérdida de interés o placer' },
+  { id: 103, label: 'Triste, sombrío o irritable' },
 ];
 
 const SEVERE_CONDUCT_ITEMS = [
