@@ -694,15 +694,59 @@
   color: #333;
 }
 
-/* ── Age input (inline in module nav) ──────────────────────── */
-.module-nav-age {
+/* ── Patient popup (module nav) ─────────────────────────────── */
+.module-nav-patient-wrapper {
+  position: relative;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.module-nav-patient-btn {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  background: transparent;
+  color: #888;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.module-nav-patient-btn:hover,
+.module-nav-patient-btn.has-data {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.module-nav-popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  min-width: 220px;
+}
+
+.module-nav-popup-field {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 13px;
   color: #555;
+}
+
+.module-nav-popup-field span {
+  width: 52px;
+  text-align: right;
   flex-shrink: 0;
-  padding: 4px 8px;
 }
 
 .module-nav-age-input {
@@ -720,12 +764,11 @@
 }
 
 .module-nav-name-input {
-  width: 120px;
+  flex: 1;
   padding: 4px 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 13px;
-  margin-left: 4px;
 }
 
 .module-nav-name-input:focus {
@@ -938,13 +981,14 @@
     margin: 0;
   }
 
-  /* Module nav stacks on mobile */
+  /* Module nav wraps on mobile */
   .module-nav {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
 
-  .module-nav-age {
-    justify-content: center;
+  .module-nav-patient-btn {
+    font-size: 12px;
+    padding: 6px 10px;
   }
 
   /* Inconsistency pairs full-width on mobile */
