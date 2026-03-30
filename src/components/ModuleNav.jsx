@@ -57,7 +57,7 @@ const ModuleNav = ({
         type="date"
         value={testDate}
         onChange={e => onTestDateChange(e.target.value)}
-        className="module-nav-age-input"
+        className="module-nav-name-input"
       />
     </label>
   </nav>
