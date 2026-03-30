@@ -36,15 +36,17 @@ const ModuleNav = ({
           ← Pruebas
         </button>
       )}
-      {MODULES.map(({ id, label }) => (
-        <button
-          key={id}
-          className={`module-tab ${activeModule === id ? 'active' : ''}`}
-          onClick={() => onModuleChange(id)}
-        >
-          {label}
-        </button>
-      ))}
+      <div className="module-nav-tabs-scroll">
+        {MODULES.map(({ id, label }) => (
+          <button
+            key={id}
+            className={`module-tab ${activeModule === id ? 'active' : ''}`}
+            onClick={() => onModuleChange(id)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
       <div className="module-nav-patient-wrapper" ref={popupRef}>
         <button
           className={`module-nav-patient-btn ${hasPatiendData ? 'has-data' : ''}`}

@@ -186,6 +186,7 @@
 /* ── Module Nav ─────────────────────────────────────────────── */
 .module-nav {
   display: flex;
+  align-items: stretch;
   gap: 4px;
   max-width: 900px;
   margin: 0 auto 16px;
@@ -193,10 +194,24 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 6px;
+  overflow: hidden;
+}
+
+.module-nav-tabs-scroll {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.module-nav-tabs-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .module-tab {
-  flex: 1;
+  flex-shrink: 0;
   margin-top: 0;
   padding: 8px 12px;
   font-size: 14px;
@@ -733,6 +748,7 @@
   z-index: 100;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   min-width: 220px;
+  max-width: calc(100vw - 24px);
 }
 
 .module-nav-popup-field {
@@ -979,11 +995,6 @@
 
   .reset-container {
     margin: 0;
-  }
-
-  /* Module nav wraps on mobile */
-  .module-nav {
-    flex-wrap: wrap;
   }
 
   .module-nav-patient-btn {
