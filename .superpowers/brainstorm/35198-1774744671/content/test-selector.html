@@ -1,0 +1,92 @@
+<h2>Test Selector — Landing Page Design</h2>
+<p class="subtitle">How should the test cards look? Pick the layout you prefer.</p>
+
+<div class="cards">
+
+  <!-- Option A: Grid cards with icon area -->
+  <div class="card" data-choice="grid" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#f8f9fa;border-radius:8px;padding:16px;font-family:sans-serif;">
+        <div style="text-align:center;margin-bottom:14px;font-size:13px;font-weight:600;color:#333;">Sistema de Evaluación Neuropsicológica</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+
+          <!-- Conners card -->
+          <div style="background:white;border:2px solid #007bff;border-radius:10px;padding:14px;text-align:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,123,255,0.15);">
+            <div style="font-size:24px;margin-bottom:6px;">🧠</div>
+            <div style="font-weight:700;font-size:13px;color:#007bff;margin-bottom:4px;">Conners 3</div>
+            <div style="font-size:11px;color:#555;margin-bottom:10px;">Evaluación de TDAH</div>
+            <div style="background:#007bff;color:white;border-radius:5px;padding:5px 8px;font-size:11px;">Iniciar →</div>
+          </div>
+
+          <!-- Placeholder 1 -->
+          <div style="background:#f9f9f9;border:2px dashed #ccc;border-radius:10px;padding:14px;text-align:center;opacity:0.7;">
+            <div style="font-size:24px;margin-bottom:6px;">📋</div>
+            <div style="font-weight:700;font-size:13px;color:#aaa;margin-bottom:4px;">BASC-3</div>
+            <div style="font-size:11px;color:#aaa;margin-bottom:10px;">Evaluación conductual</div>
+            <div style="background:#e0e0e0;color:#aaa;border-radius:5px;padding:5px 8px;font-size:11px;">Próximamente</div>
+          </div>
+
+          <!-- Placeholder 2 -->
+          <div style="background:#f9f9f9;border:2px dashed #ccc;border-radius:10px;padding:14px;text-align:center;opacity:0.7;">
+            <div style="font-size:24px;margin-bottom:6px;">📊</div>
+            <div style="font-weight:700;font-size:13px;color:#aaa;margin-bottom:4px;">BRIEF-2</div>
+            <div style="font-size:11px;color:#aaa;margin-bottom:10px;">Función ejecutiva</div>
+            <div style="background:#e0e0e0;color:#aaa;border-radius:5px;padding:5px 8px;font-size:11px;">Próximamente</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Grid de tarjetas</h3>
+      <p>3 columnas con icono, nombre, descripción corta y botón. Próximamente aparece con borde punteado y opacidad reducida.</p>
+    </div>
+  </div>
+
+  <!-- Option B: List / row cards -->
+  <div class="card" data-choice="list" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#f8f9fa;border-radius:8px;padding:16px;font-family:sans-serif;">
+        <div style="text-align:center;margin-bottom:14px;font-size:13px;font-weight:600;color:#333;">Sistema de Evaluación Neuropsicológica</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+
+          <!-- Conners row -->
+          <div style="background:white;border:2px solid #007bff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,123,255,0.12);">
+            <div style="font-size:28px;">🧠</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:13px;color:#007bff;">Conners 3</div>
+              <div style="font-size:11px;color:#666;">Evaluación de TDAH • 113 preguntas</div>
+            </div>
+            <div style="background:#007bff;color:white;border-radius:6px;padding:6px 12px;font-size:12px;">Iniciar →</div>
+          </div>
+
+          <!-- Placeholder row 1 -->
+          <div style="background:#fafafa;border:1.5px dashed #ccc;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px;opacity:0.65;">
+            <div style="font-size:28px;">📋</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:13px;color:#aaa;">BASC-3</div>
+              <div style="font-size:11px;color:#aaa;">Evaluación conductual</div>
+            </div>
+            <div style="background:#e0e0e0;color:#aaa;border-radius:6px;padding:6px 12px;font-size:12px;">Próximamente</div>
+          </div>
+
+          <!-- Placeholder row 2 -->
+          <div style="background:#fafafa;border:1.5px dashed #ccc;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px;opacity:0.65;">
+            <div style="font-size:28px;">📊</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:13px;color:#aaa;">BRIEF-2</div>
+              <div style="font-size:11px;color:#aaa;">Función ejecutiva</div>
+            </div>
+            <div style="background:#e0e0e0;color:#aaa;border-radius:6px;padding:6px 12px;font-size:12px;">Próximamente</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Lista de filas</h3>
+      <p>Tarjetas horizontales apiladas. Más información visible por fila, escala bien a pantallas estrechas.</p>
+    </div>
+  </div>
+
+</div>

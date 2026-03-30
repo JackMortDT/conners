@@ -1,0 +1,49 @@
+<h2>¿Cómo estructurar las secciones colapsables?</h2>
+<p class="subtitle">El nuevo tab unificado tendrá contenido de Análisis de Estilo y Análisis Clínico. Elige cómo agruparlas.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>2 bloques grandes</h3>
+      <p>Un colapsable para <strong>Análisis de Estilo</strong> (contiene Índice + PI/NI) y otro para <strong>Análisis Clínico</strong> (contiene DSM-5, Conducta, Deterioro, ADHD, Screener).</p>
+      <div style="margin-top:10px;font-size:12px;color:#888;">
+        <div style="border:1px solid #ddd;border-radius:6px;padding:6px 10px;margin-bottom:4px;background:#f9f9f9;">▶ Análisis de Estilo de Respuesta</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:6px 10px;background:#f9f9f9;">▶ Análisis Clínico</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Cada sección por separado</h3>
+      <p>Cada sub-sección es su propio colapsable independiente — mayor control, más clics para abrir.</p>
+      <div style="margin-top:10px;font-size:12px;color:#888;">
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Índice de Inconsistencia</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Guías PI / NI</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ DSM-5 Síntomas ADHD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Trastorno de Conducta / TOD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Ítems de Deterioro</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Índice ADHD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;background:#f9f9f9;">▶ Ítems Screener</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Mixto — Estilo juntos, Clínico separado</h3>
+      <p><strong>Análisis de Estilo</strong> en un solo colapsable (es pequeño), y cada sección clínica como colapsable propio.</p>
+      <div style="margin-top:10px;font-size:12px;color:#888;">
+        <div style="border:1px solid #ddd;border-radius:6px;padding:6px 10px;margin-bottom:4px;background:#f9f9f9;">▶ Análisis de Estilo de Respuesta</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ DSM-5 Síntomas ADHD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Trastorno de Conducta / TOD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Ítems de Deterioro</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#f9f9f9;">▶ Índice ADHD</div>
+        <div style="border:1px solid #ddd;border-radius:6px;padding:5px 8px;background:#f9f9f9;">▶ Ítems Screener</div>
+      </div>
+    </div>
+  </div>
+</div>
