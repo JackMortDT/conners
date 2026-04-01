@@ -1020,6 +1020,22 @@
     flex-direction: column;
   }
 
+  /* Horizontal scroll for wide clinical tables */
+  .clinical-tables-row > div,
+  .pi-ni-table-scroll,
+  .clinical-section-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .clinical-table {
+    min-width: 420px;
+  }
+
+  .pi-ni-table {
+    min-width: 360px;
+  }
+
 }
 
 /* ── Análisis de Resultados ─────────────────────────────────── */
