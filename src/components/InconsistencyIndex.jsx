@@ -99,6 +99,7 @@ const InconsistencyIndex = ({ answers, questions }) => {
 
       <section className="inconsistency-section">
         <h3>Guías de Escala PI y NI</h3>
+        <div className="pi-ni-table-scroll">
         <table className="pi-ni-table">
           <thead>
             <tr>
@@ -128,6 +129,7 @@ const InconsistencyIndex = ({ answers, questions }) => {
             </tr>
           </tbody>
         </table>
+        </div>
         <p className="pi-ni-note">
           Puntaje bruto ≥ 5 en PI o NI sugiere revisar el estilo de respuesta.
         </p>
