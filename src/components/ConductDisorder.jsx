@@ -53,6 +53,7 @@ const DisorderTable = ({ title, criteria, threshold, answers }) => {
   return (
     <div style={{ flex: 1, minWidth: 0 }}>
       <h4 style={{ margin: '0 0 8px', fontSize: 14, color: '#444' }}>{title}</h4>
+      <div className="table-scroll">
       <table className="clinical-table">
         <thead>
           <tr>
@@ -83,6 +84,7 @@ const DisorderTable = ({ title, criteria, threshold, answers }) => {
           </tr>
         </tfoot>
       </table>
+      </div>
       <p className={`clinical-threshold ${met ? 'met' : ''}`}>
         Criterios probablemente {met ? 'cumplidos' : 'no cumplidos'} (≥ {threshold}).
       </p>

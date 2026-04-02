@@ -35,7 +35,7 @@ const ADHDIndex = ({ answers }) => {
   return (
     <section className="clinical-section">
       <h3>Índice TDAH de Conners 3</h3>
-      <div style={{ overflowX: 'auto' }}>
+      <div className="table-scroll">
         <table className="clinical-table" style={{ minWidth: 640 }}>
           <thead>
             <tr>

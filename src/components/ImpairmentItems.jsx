@@ -9,6 +9,7 @@ const LABELS = ['Nunca/No es verdad', 'Un poco verdad/Ocasionalmente', 'Bastante
 const ImpairmentItems = ({ answers }) => (
   <section className="clinical-section">
     <h3>Deterioro Funcional</h3>
+    <div className="table-scroll">
     <table className="clinical-table">
       <thead>
         <tr>
@@ -33,6 +34,7 @@ const ImpairmentItems = ({ answers }) => (
         })}
       </tbody>
     </table>
+    </div>
   </section>
 );
 

@@ -1020,6 +1020,23 @@
     flex-direction: column;
   }
 
+  .collapsible-body {
+    padding: 12px;
+  }
+
+}
+
+/* ── Scrollable table wrapper ────────────────────────────────── */
+/* Applied directly in JSX around every wide table so it scrolls
+   horizontally on any narrow viewport without breaking layout.  */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll .clinical-table,
+.table-scroll .pi-ni-table {
+  min-width: 380px;
 }
 
 /* ── Análisis de Resultados ─────────────────────────────────── */
