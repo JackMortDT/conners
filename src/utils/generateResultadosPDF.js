@@ -244,7 +244,7 @@ export function generateResultadosPDF({ answers, questions, age, patientName, te
   for (const [qId, val] of Object.entries(answers)) {
     const q = questions.find(q => q.id === Number(qId));
     if (!q) continue;
-    const score = parseInt(val, 10) || 0;
+    const score = q.options[parseInt(val, 10)] ?? 0;
     if (q.fields.includes('PI')) piTotal += score;
     if (q.fields.includes('NI')) niTotal += score;
   }

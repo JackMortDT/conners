@@ -8,7 +8,7 @@ const Total = ({ fields, answers, questions, resetAnswers }) => {
       const question = questions.find(q => q.id === Number(questionId));
       if (question) {
         question.fields.forEach(fieldKey => {
-          totals[fieldKey] += parseInt(selectedAnswer, 10) || 0;
+          totals[fieldKey] += question.options[parseInt(selectedAnswer, 10)] ?? 0;
         });
       }
     }

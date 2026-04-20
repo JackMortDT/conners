@@ -21,7 +21,7 @@ const Board = ({ questions, fields, answers, setAnswers }) => {
             >
               {question.fields.includes(field) && (
                 <div className="result">
-                  {answers[question.id] ?? 0}
+                  {question.options[answers[question.id]] ?? 0}
                 </div>
               )}
             </td>

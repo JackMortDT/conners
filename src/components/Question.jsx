@@ -1,17 +1,17 @@
 const Question = ({ questionId, answer, onAnswerChange, options }) => {
   return (
     <div className="question-options">
-      {options.map((option) => {
-        const inputId = `q${questionId}-opt${option}`;
+      {options.map((option, index) => {
+        const inputId = `q${questionId}-opt${index}`;
         return (
-          <div key={option} className="option-item">
+          <div key={index} className="option-item">
             <input
               id={inputId}
               type="radio"
               name={`question-${questionId}`}
-              value={option}
-              checked={answer === option}
-              onChange={() => onAnswerChange(option)}
+              value={index}
+              checked={answer === index}
+              onChange={() => onAnswerChange(index)}
             />
             <label htmlFor={inputId}>{option}</label>
           </div>
